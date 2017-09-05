@@ -1,2 +1,2 @@
 #db connection informations
-src\procedures\connect.php
+src/procedures/connect.php
