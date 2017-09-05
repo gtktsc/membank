@@ -1,0 +1,323 @@
+@header-bg: #ffffff;
+@main-background: #FCFBF9;
+@text-header:#999897;
+@text-header-2:#717171;
+@header-link-hover: #E5E4E2;
+@article-background:#F5F5F5;
+@logo:#D23830;
+@logo-2:#595958;
+@section-background:@header-bg;
+
+body,html,main,svg,ul{
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;    
+    color:@text-header; 
+}
+a{
+    text-decoration: none;                
+    color:@text-header; 
+}
+header{
+    margin:0;
+    padding:0;
+    height:50px;
+    background-color:@header-bg;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid @article-background;
+    svg{
+        width:150px;
+        .svg-text {
+            fill: @logo-2;
+            transition: fill 0.5s;
+        }
+
+    }
+    nav{
+        height: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .menu{
+            list-style: none;
+            height: 100%;
+            display: flex;  
+            align-items:center;
+            li{
+                height: 100%;
+                padding-left:4vw;
+                padding-right:4vw;
+                display: flex;  
+                align-items:center;
+            }
+            li:hover{
+                background-color:@header-link-hover;
+                a{
+                    color:@text-header-2;                
+                }
+            }
+            a{
+                height: 100%;
+                display: flex;  
+                align-items:center;
+                text-transform: uppercase;
+                font-weight: 100;
+                color:@text-header;
+            }
+        }
+        .user{
+            list-style: none;
+            height: 100%;
+            position: relative;
+            display: flex;  
+            align-items:center;
+            flex-direction: column;
+            span{
+                height: 100%;
+                padding-left:4vw;
+                padding-right:4vw;
+                display: flex;  
+                align-items:center;
+                text-transform: uppercase;
+                font-weight: 100;
+                color:@text-header;
+                cursor: pointer;
+                
+            }
+            span:hover{
+                background-color:@header-link-hover;
+                color:@text-header-2;                                
+            }
+            div{
+                position:absolute;
+                width:100%;
+                box-sizing: border-box;
+                top:100%;
+                left:0;
+                border-right:1px solid @article-background;
+                border-left:1px solid @article-background;
+                border-bottom:1px solid @article-background;
+                ul{
+                    list-style: none;
+                    background-color:@header-bg; 
+                    width:100%;
+                    li{
+                        text-align: center;
+                        padding: 5px 0px;                    
+                    }
+                    a{
+                        text-align: center;    
+                        width: 100%;    
+                        text-transform: uppercase;
+                        font-weight: 100;
+                        color:@text-header;
+                    }   
+                    a:hover, li:hover{
+                        background-color:@header-link-hover;
+                        color:@text-header-2;                
+                    }          
+                }
+            }
+            
+        }
+    }
+}
+.hidden{
+    display:none;    
+}
+.error{
+    text-align: center;
+    color:@logo;
+}
+main{
+    width:100%;
+    background-color:@main-background;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .autor{
+        img{
+            max-width:90vw;
+        }        
+    }
+    .mem-list{
+        margin:50px;
+        padding:25px;
+        width:60vw;        
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color:@article-background;        
+        div{
+            width:100%;
+            padding:25px;
+            box-sizing: border-box;
+            font-weight: 300;
+
+            article{
+                h3{
+                    text-align: center;
+                    font-weight: 100;
+                    font-size:0.9em;
+                    span{
+                        color:@text-header-2;
+                    }
+                }
+                background-color:@article-background;
+                img{
+                    width:100%;
+
+                }
+            }
+
+        }
+    }
+    .mem-add{
+        form{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            input{
+                margin:20px;
+                padding:5px 10px;
+                background-color: @text-header;
+                color:@header-bg;
+                border: none;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 100;   
+                font-size: 1.25em;
+            }
+            #file{
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+            label{
+                margin-top:20px;                
+                font-size: 1.25em;
+                font-weight: 300;
+                color: @text-header-2;
+                display: inline-block;
+                cursor: pointer;
+            }
+            label:focus{
+                background-color: red;                
+            }
+        }
+    }
+    .acc-add{
+        padding: 2vh 0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        button{
+            outline:none;
+            margin: 1vh 0;
+            border: solid 1px @text-header;
+            background-color:@main-background;
+            padding: 2vh 2vw;                
+            width:30vw;
+            font-family: 'Roboto', sans-serif;       
+            transition: all 0.3s;   
+            box-sizing: border-box;  
+            text-transform: uppercase; 
+            margin-top:4vh;            
+        }
+        button:hover{
+            background-color:@header-link-hover;              
+        }
+        form{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+            label{
+                margin: 1vh 0;
+            }
+            span{
+                color:@logo;
+            }
+            input{
+                outline:none;
+                margin: 1vh 0;
+                border: solid 1px @text-header;
+                background-color:@main-background;
+                padding: 2vh 2vw;                
+                width:30vw;
+                font-family: 'Roboto', sans-serif;       
+                transition: all 0.3s;   
+                box-sizing: border-box;      
+            }
+            input:focus{
+                outline:none;                
+                border: solid 1px @text-header-2;
+                background-color:@header-link-hover;  
+            }
+            input[type="submit"]:hover{
+                background-color:@header-link-hover;  
+            }
+            input[type="submit"]{
+                text-transform: uppercase;                
+                margin-top:4vh;
+            }
+        }
+    }
+}
+footer{
+    display:flex;
+    align-items: center;
+    justify-content: center; 
+    font-weight: 100;
+    font-size:0.5em;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    main{
+        .mem-list{
+            margin:20px;
+            padding:10px;
+            width:80%; 
+            div{
+                padding:2px;
+            }
+        }
+    }
+
+}
+@media (max-width: 767px) {
+    header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-direction: column;   
+        .user{
+            div{
+                margin-top:10px;
+            }
+        }
+    }
+    main{
+        margin-top:50px;
+        .mem-list{
+            margin:0px;
+            padding:0px;
+            width:95%; 
+            div{
+                padding:0px;
+            }
+        }      
+    }
+
+}

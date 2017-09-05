@@ -1,0 +1,2 @@
+RewriteEngine on
+ErrorDocument 404 http://membank.pl/404.php

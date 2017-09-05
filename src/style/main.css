@@ -1,0 +1,301 @@
+body,
+html,
+main,
+svg,
+ul {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: #999897;
+}
+a {
+  text-decoration: none;
+  color: #999897;
+}
+header {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F5F5F5;
+}
+header svg {
+  width: 150px;
+}
+header svg .svg-text {
+  fill: #595958;
+  transition: fill 0.5s;
+}
+header nav {
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+header nav .menu {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header nav .menu li {
+  height: 100%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  display: flex;
+  align-items: center;
+}
+header nav .menu li:hover {
+  background-color: #E5E4E2;
+}
+header nav .menu li:hover a {
+  color: #717171;
+}
+header nav .menu a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #999897;
+}
+header nav .user {
+  list-style: none;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+header nav .user span {
+  height: 100%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #999897;
+  cursor: pointer;
+}
+header nav .user span:hover {
+  background-color: #E5E4E2;
+  color: #717171;
+}
+header nav .user div {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  top: 100%;
+  left: 0;
+  border-right: 1px solid #F5F5F5;
+  border-left: 1px solid #F5F5F5;
+  border-bottom: 1px solid #F5F5F5;
+}
+header nav .user div ul {
+  list-style: none;
+  background-color: #ffffff;
+  width: 100%;
+}
+header nav .user div ul li {
+  text-align: center;
+  padding: 5px 0px;
+}
+header nav .user div ul a {
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #999897;
+}
+header nav .user div ul a:hover,
+header nav .user div ul li:hover {
+  background-color: #E5E4E2;
+  color: #717171;
+}
+.hidden {
+  display: none;
+}
+.error {
+  text-align: center;
+  color: #D23830;
+}
+main {
+  width: 100%;
+  background-color: #FCFBF9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .autor img {
+  max-width: 90vw;
+}
+main .mem-list {
+  margin: 50px;
+  padding: 25px;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+}
+main .mem-list div {
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+main .mem-list div article {
+  background-color: #F5F5F5;
+}
+main .mem-list div article h3 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 0.9em;
+}
+main .mem-list div article h3 span {
+  color: #717171;
+}
+main .mem-list div article img {
+  width: 100%;
+}
+main .mem-add form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .mem-add form input {
+  margin: 20px;
+  padding: 5px 10px;
+  background-color: #999897;
+  color: #ffffff;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 1.25em;
+}
+main .mem-add form #file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+main .mem-add form label {
+  margin-top: 20px;
+  font-size: 1.25em;
+  font-weight: 300;
+  color: #717171;
+  display: inline-block;
+  cursor: pointer;
+}
+main .mem-add form label:focus {
+  background-color: red;
+}
+main .acc-add {
+  padding: 2vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .acc-add button {
+  outline: none;
+  margin: 1vh 0;
+  border: solid 1px #999897;
+  background-color: #FCFBF9;
+  padding: 2vh 2vw;
+  width: 30vw;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  margin-top: 4vh;
+}
+main .acc-add button:hover {
+  background-color: #E5E4E2;
+}
+main .acc-add form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+main .acc-add form label {
+  margin: 1vh 0;
+}
+main .acc-add form span {
+  color: #D23830;
+}
+main .acc-add form input {
+  outline: none;
+  margin: 1vh 0;
+  border: solid 1px #999897;
+  background-color: #FCFBF9;
+  padding: 2vh 2vw;
+  width: 30vw;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+main .acc-add form input:focus {
+  outline: none;
+  border: solid 1px #717171;
+  background-color: #E5E4E2;
+}
+main .acc-add form input[type="submit"]:hover {
+  background-color: #E5E4E2;
+}
+main .acc-add form input[type="submit"] {
+  text-transform: uppercase;
+  margin-top: 4vh;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  font-size: 0.5em;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  main .mem-list {
+    margin: 20px;
+    padding: 10px;
+    width: 80%;
+  }
+  main .mem-list div {
+    padding: 2px;
+  }
+}
+@media (max-width: 767px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  header .user div {
+    margin-top: 10px;
+  }
+  main {
+    margin-top: 50px;
+  }
+  main .mem-list {
+    margin: 0px;
+    padding: 0px;
+    width: 95%;
+  }
+  main .mem-list div {
+    padding: 0px;
+  }
+}
