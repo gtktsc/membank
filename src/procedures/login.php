@@ -32,7 +32,7 @@ if($connection->connect_errno!=0){
                 header('Location:../../index.php');
             }else{
             $_SESSION['nouser']="nieprawidlowy";
-            $_SESSION['login']="Zły login / hasło";
+            $_SESSION['loginError']="Zły login / hasło";
             header('Location:../../zaloguj.php');
         };   
             $result->close();

@@ -5,10 +5,6 @@ if(isset($_SESSION["loginError"])){
       echo "<h2 class = 'error'>".$_SESSION["loginError"]."</h2>";
       unset($_SESSION["loginError"]);
 };
-if(isset($_SESSION["errorpass"])){
-      echo "<h2 class = 'error'>".$_SESSION["errorpass"]."</h2>";
-      unset($_SESSION["errorpass"]);
-};
 ?>
 
 
