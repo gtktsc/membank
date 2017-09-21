@@ -41,9 +41,11 @@ renderHeader();
                     $validated=false;
                     $_SESSION["errorpass"]="Hasła nie są zgodne";
                 };
+                
                 $passwordHash=password_hash($password,PASSWORD_DEFAULT);      
                 if($validated==true){
-                    if($conn->query("UPDATE lamusy SET password = '$passwordHash' passwordReset = '' WHERE login = '$login'")){
+                    if($conn->query("UPDATE lamusy SET password = '$passwordHash', passwordReset = '' WHERE login = '$login'")){
+
                         $_SESSION["errorpass"]='Haslo zostało zmienione';  
                         header("Location:zaloguj.php");                               
                         exit();
@@ -77,6 +79,7 @@ renderHeader();
             <?php
             if(isset($_SESSION["errorpass"])){
                   echo "<span>".$_SESSION["errorpass"]."</span><br>";
+                  unset($_SESSION["errorpass"]);
             };
             ?>
       </form>
