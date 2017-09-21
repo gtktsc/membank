@@ -44,11 +44,13 @@ renderHeader();
                                                             'vote'          => $objVote->vote
                                                             );
                                                       $sumVotes+=$elementVote["vote"];
-                                                      if($elementVote["autor"]==$_SESSION["userId"]){
-                                                            if($elementVote["vote"]==1){
-                                                                  $yourVote='voted-up';  
-                                                            }else if($elementVote["vote"]==-1){
-                                                                  $yourVote='voted-down';  
+                                                      if(isset($_SESSION["userId"])){
+                                                            if($elementVote["autor"]==$_SESSION["userId"] ){
+                                                                  if($elementVote["vote"]==1){
+                                                                        $yourVote='voted-up';  
+                                                                  }else if($elementVote["vote"]==-1){
+                                                                        $yourVote='voted-down';  
+                                                                  };
                                                             };
                                                       };
                                                       array_push($resultArray, $elementVote);        
@@ -74,7 +76,18 @@ renderHeader();
                   }
             ?>
             <img src='data:image/jpeg;base64,<?=$element['image']?>'/>
-            <h3 class = "votes"><span id="vote-up" class = "<?php if($yourVote=="voted-up") echo $yourVote ?>">&blacktriangle;</span><span id = "vote"><?=$ocena?></span><span id="vote-down" class = "<?php if($yourVote=="voted-down") echo $yourVote ?>">&blacktriangledown;</span></h3>
+            <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
+
+      
+            <h3 class = "votes"><span id="vote-up" class = "<?php if($yourVote=="voted-up") echo $yourVote ?>">&blacktriangle;</span>
+
+            <span id = "vote"><?=$ocena?></span>
+            
+            <span id="vote-down" class = "<?php if($yourVote=="voted-down") echo $yourVote ?>">&blacktriangledown;</span></h3>
+
+            <?php endif; ?>
+
+
             <h3>autor: <span><?=$element['autor']?></span></h3>
 
       </section>
@@ -90,8 +103,6 @@ function vote (how) {
                   
                   document.getElementById("vote").innerHTML=this.responseText;
                   
-                  
-
             }
       };
       if(how==='up'){

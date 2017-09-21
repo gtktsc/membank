@@ -5,7 +5,7 @@ $votedPost = $_POST["memid"];
 require_once "functions.php";
 
 if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true){
-    require_once "connect.php";
+    require_once "connect.php";    
     $conn = new mysqli($servername, $username, $password,$databaseName);
     if (!$conn->connect_error) {
         $sqlVote = "SELECT * FROM oceny WHERE memid = $votedPost";
