@@ -126,7 +126,7 @@ $header_html_1 = '<!DOCTYPE html>
       </header>';
       }
 
-
+      require_once "src/procedures/functions.php";      
     function renderHeader() {
         echo $GLOBALS['header_html_1'];
     }

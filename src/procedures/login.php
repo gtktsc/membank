@@ -28,6 +28,7 @@ if($connection->connect_errno!=0){
             if(password_verify($password,$userData['password']) ){
                 $_SESSION["logged"]=true;
                 $_SESSION["userName"]=$userData['login'];
+                $_SESSION["userId"]=$userData['id'];
                 unset($_SESSION['nouser']);
                 header('Location:../../index.php');
             }else{

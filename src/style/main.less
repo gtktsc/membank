@@ -7,6 +7,8 @@
 @logo:#D23830;
 @logo-2:#595958;
 @section-background:@header-bg;
+@vot-up:#468966;
+@vot-down:#B62C26;
 
 body,html,main,svg,ul{
     padding:0;
@@ -153,7 +155,19 @@ main{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color:@article-background;        
+        background-color:@article-background;
+        .votes{
+            span{
+                padding:1vh 0.5vw;
+            }
+            .voted-up{
+                color:@vot-up;
+            }   
+            .voted-down{
+                color:@vot-down;
+            }
+        }
+
         div{
             width:100%;
             padding:25px;

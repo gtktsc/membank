@@ -17,7 +17,6 @@ renderHeader();
                         <a href="post.php?mem={{memid}}">
                         <img src="data:image/jpeg;base64,{{image}}"/></a>
                         <h3>autor: <span><a href="autor.php?autor={{memautor}}">{{memautor}}</a></span></h3>
-                        
                   </div>
             </article>
       </script>

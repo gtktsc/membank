@@ -146,6 +146,15 @@ main .mem-list {
   justify-content: center;
   background-color: #F5F5F5;
 }
+main .mem-list .votes span {
+  padding: 1vh 0.5vw;
+}
+main .mem-list .votes .voted-up {
+  color: #468966;
+}
+main .mem-list .votes .voted-down {
+  color: #B62C26;
+}
 main .mem-list div {
   width: 100%;
   padding: 25px;

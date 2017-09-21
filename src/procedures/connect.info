@@ -5,3 +5,19 @@
     $databaseName="######";
     $tableName="mems"
 ?>
+
+#struktura bazy:
+    #lamusy
+        #1 id(int) podstawowy AUTO_INCREMENT
+        #2 login(text)
+        #3 password(text)
+        #4 email(text)
+        #5 passwordReset(text)
+    #mems
+        #1 id(int) podstawowy AUTO_INCREMENT
+        #2 image(mediumblob)
+        #3 autor(text)
+    #oceny
+        #1 memid(int) podstawowy
+        #2 userid(int) podstawowy
+        #3 vote(int)
