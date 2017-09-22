@@ -35,22 +35,40 @@ var _readPosts = function(loadOnPageEnter) {
 
                         success: function (result) {
                             if (result.elements.length) {
-                                    for (var i = 0; i < result.elements.length; i++) {
-                                        var mems = result.elements[i];
-                                        //tworzymy template newsa
-                                        var theTemplateScript = $("#mem-template").html();
-                                        var theTemplate = Handlebars.compile(theTemplateScript);
-                                        var context = {
-                                                memid: mems.id,
-                                                memautor:mems.autor,
-                                                image: mems.image
-                                        };
+                                for (var i = 0; i < result.elements.length; i++) {
+                                    var mems = result.elements[i];
+                                    //tworzymy template newsa
+                                    var theTemplateScript = $("#mem-template").html();
+                                    var theTemplate = Handlebars.compile(theTemplateScript);
+                                    var context = {
+                                            memid: mems.id,
+                                            memautor:mems.autor,
+                                            image: mems.image,
+                                            postVote: mems.vote,
+                                            userChoice: mems.userVote
+                                    };
 
-                                        var theCompiledHtml = theTemplate(context);
-                                        var $element = $(theCompiledHtml);
-                                        $(".mem-list .mem").append($element);
-                                    }
-
+                                    var theCompiledHtml = theTemplate(context);
+                                    var $element = $(theCompiledHtml);
+                                    $(".mem-list .mem").append($element);
+                                    // var voteUp=$("#vote-up-"+ mems.id);
+                                    // var voteDown = ("#vote-down-"+ mems.id);
+                                    // var voteNote = $("#vote-"+ mems.id);
+                                    var voteUp = document.getElementById('vote-up-'+mems.id)
+                                    var voteDown = document.getElementById('vote-down-'+mems.id)
+                                    var voteNote = document.getElementById('vote-'+mems.id)
+                                    var userId = mems.activeUser;
+                                    console.log(voteUp,voteDown)
+                                    $("#vote-up-"+ mems.id).click(function(){
+                                        vote('up',
+                                            userId,
+                                            mems.id,
+                                            voteNote,
+                                            voteUp,
+                                            voteDown
+                                    )
+                                    });
+                                };
                             isPreviousEventComplete = true;  
 
                             if (!loadOnPageEnter) {

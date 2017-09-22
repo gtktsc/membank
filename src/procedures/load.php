@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once ("connect.php");
 
 $conn = new mysqli($servername, $username, $password,$databaseName);
@@ -49,6 +49,39 @@ if ($result = $conn->query($sql)) {
         if ($obj->id == $lastRowId) {
             $resultArray['endList'] = true;
         }
+        $sqlVote = "SELECT * FROM oceny WHERE memid = '".$element['id']."'";
+        if ($resultVote = $conn->query($sqlVote)) {
+              $elementVote = array();
+              $sumVotes=0;
+              $voters=0;
+              $yourVote='none';                                     
+              while ($objVote = $resultVote->fetch_object()) {
+                $voters++;
+                $elementVote = array(
+                        'id'            => $objVote->memid,
+                        'autor'         => $objVote->userid,
+                        'vote'          => $objVote->vote
+                        );
+                $sumVotes+=$elementVote["vote"];
+                if(isset($_SESSION["userId"])){
+                    if($elementVote["autor"]==$_SESSION["userId"] ){
+                        if($elementVote["vote"]==1){
+                                $yourVote='voted-up';  
+                        }else if($elementVote["vote"]==-1){
+                                $yourVote='voted-down';  
+                        };
+                    };
+                };
+            };
+            if($voters>0){
+                $ocena=$sumVotes/$voters;
+            }else{
+                $ocena=0;
+            };
+        }
+        $element['vote']=$ocena;
+        $element['userVote']=$yourVote;
+        $element['activeUser']=$_SESSION['userId'];
         array_push($resultArray['elements'], $element);        
     }
     echo json_encode($resultArray);

@@ -80,46 +80,34 @@ renderHeader();
 
       
             <h3 class = "votes"><span id="vote-up" class = "<?php if($yourVote=="voted-up") echo $yourVote ?>">&blacktriangle;</span>
-
+            <?php endif; ?>
             <span id = "vote"><?=$ocena?></span>
-            
+            <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
+
             <span id="vote-down" class = "<?php if($yourVote=="voted-down") echo $yourVote ?>">&blacktriangledown;</span></h3>
 
             <?php endif; ?>
 
 
-            <h3>autor: <span><?=$element['autor']?></span></h3>
+            <h3>autor: <span><a href="autor.php?autor=<?=$element['autor']?>"><?=$element['autor']?></a></span></h3>
 
       </section>
 </main>
 <script>
-document.getElementById("vote-up").addEventListener("click", function(){vote('up');});
- document.getElementById("vote-down").addEventListener("click", function(){vote('down');});
-function vote (how) {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 
-                  
-                  document.getElementById("vote").innerHTML=this.responseText;
-                  
-            }
-      };
-      if(how==='up'){
-            xmlhttp.open("POST", "src/procedures/voteUp.php", true);
-            document.getElementById("vote-up").classList.add("voted-up");
-            document.getElementById("vote-down").classList.remove("voted-down");
-
-      }else if(how==='down'){
-            xmlhttp.open("POST", "src/procedures/voteDown.php", true);
-            document.getElementById("vote-down").classList.add("voted-down");
-            document.getElementById("vote-up").classList.remove("voted-up");
-
-
-      };
-      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xmlhttp.send("user=<?=$_SESSION["userId"]?>&memid=<?= $memeTest2?>");
-}
+document.getElementById("vote-up").addEventListener("click", function(){
+      vote('up',
+            <?=$_SESSION["userId"]?>,
+            <?= $memeTest2?>,
+            document.getElementById("vote"),
+            this,
+            document.getElementById("vote-down"));});
+document.getElementById("vote-down").addEventListener("click", function(){
+      vote('down',
+            <?=$_SESSION["userId"]?>,
+            <?= $memeTest2?>,
+            document.getElementById("vote"),
+            document.getElementById("vote-up"),
+            this);});
 
 </script>
 <?php

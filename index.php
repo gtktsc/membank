@@ -16,6 +16,20 @@ renderHeader();
                   <div>
                         <a href="post.php?mem={{memid}}">
                         <img src="data:image/jpeg;base64,{{image}}"/></a>
+                        <h3 class = "votes">
+                        <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
+
+                        <span id="vote-up-{{memid}}" class = "{{userChoice}}">&blacktriangle;</span>
+                        <?php endif; ?>
+
+                        <span id = "vote-{{memid}}">{{postVote}}</span>
+
+                        <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
+
+                        <span id="vote-down-{{memid}}" class = "{{userChoice}}">&blacktriangledown;</span>
+
+                        <?php endif; ?>
+                        </h3>
                         <h3>autor: <span><a href="autor.php?autor={{memautor}}">{{memautor}}</a></span></h3>
                   </div>
             </article>
