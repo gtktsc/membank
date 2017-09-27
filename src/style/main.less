@@ -10,6 +10,7 @@
 @vot-up:#468966;
 @vot-down:#B62C26;
 
+
 body,html,main,svg,ul{
     padding:0;
     margin:0;
@@ -156,17 +157,54 @@ main{
         align-items: center;
         justify-content: center;
         background-color:@article-background;
+        .about{
+            font-weight: 100;
+            font-size:1em;
+            padding: 0;
+            background-color: @main-background;
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around; 
+            h3{
+                padding-left:2vw;
+                padding-right:2vw;
+            }
+        }
+        img{
+            width:100%;
+        }
         .votes{
+            span:nth-child(2){
+                min-width: 3vw;
+                display: inline-block;
+                cursor: default;
+                text-align: center;
+            }
+            span{
+                &.up{                    
+                    &.voted-up{                        
+                        color:@vot-up;
+                    }  
+                }
+                &.down{
+                    &.voted-down{
+                        color:@vot-down;
+                    }
+                }
+                &.up:hover{
+                    text-shadow: 0px -10px @logo-2;    
+                }
+                &.down:hover{
+                    text-shadow: 0px 10px @logo-2;                
+                }
+            }
+
             cursor: pointer;
             span{
                 padding:1vh 0.5vw;
             }
-            .voted-up{
-                color:@vot-up;
-            }   
-            .voted-down{
-                color:@vot-down;
-            }
+
         }
 
         div{
@@ -174,12 +212,11 @@ main{
             padding:25px;
             box-sizing: border-box;
             font-weight: 300;
-
             article{
                 h3{
                     text-align: center;
                     font-weight: 100;
-                    font-size:0.9em;
+                    font-size:1.2em;
                     span{
                         color:@text-header-2;
                     }

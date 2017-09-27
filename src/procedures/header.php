@@ -15,7 +15,7 @@ $header_html_1 = '<!DOCTYPE html>
             <meta name="author" 
                   content="top kek general">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link href="src/style/main.css"
+            <link href="src/style/main.min.css"
                   rel="stylesheet">  
                   
        

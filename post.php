@@ -76,39 +76,38 @@ renderHeader();
                   }
             ?>
             <img src='data:image/jpeg;base64,<?=$element['image']?>'/>
+            <div class = "about">
             <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
-
-      
-            <h3 class = "votes"><span id="vote-up" class = "<?php if($yourVote=="voted-up") echo $yourVote ?>">&blacktriangle;</span>
-            <?php endif; ?>
-            <span id = "vote"><?=$ocena?></span>
-            <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
-
-            <span id="vote-down" class = "<?php if($yourVote=="voted-down") echo $yourVote ?>">&blacktriangledown;</span></h3>
-
-            <?php endif; ?>
-
-
-            <h3>autor: <span><a href="autor.php?autor=<?=$element['autor']?>"><?=$element['autor']?></a></span></h3>
-
+            
+                  <h3 class = "votes"><span id="vote-up" class = "up <?php if($yourVote=="voted-up") echo $yourVote ?>">&blacktriangle;</span>
+                  <?php endif; ?>
+                  <span id = "vote"><?=$ocena?></span>
+                  <?php  if(isset($_SESSION["logged"]) && $_SESSION["logged"]==true): ?>
+                  <span id="vote-down" class = "down <?php if($yourVote=="voted-down") echo $yourVote ?>">&blacktriangledown;</span></h3>
+                  <?php endif; ?>
+                  <h3>autor: <span><a href="autor.php?autor=<?=$element['autor']?>"><?=$element['autor']?></a></span></h3>
+            </div>
       </section>
 </main>
 <script>
-document.getElementById("vote-up").addEventListener("click", function(){
+var loggedUser = "<?php if(isset($_SESSION["userId"])){ echo $_SESSION["userId"];}else {echo 'none';}?>";
+if(loggedUser!=='none'){
+      console.log(loggedUser);
+      document.getElementById("vote-up").addEventListener("click", function(){
       vote('up',
-            <?=$_SESSION["userId"]?>,
+            <?php if(isset($_SESSION["userId"])){ echo $_SESSION["userId"];}else {echo 'none';}?>,
             <?= $memeTest2?>,
             document.getElementById("vote"),
             this,
             document.getElementById("vote-down"));});
-document.getElementById("vote-down").addEventListener("click", function(){
+      document.getElementById("vote-down").addEventListener("click", function(){
       vote('down',
-            <?=$_SESSION["userId"]?>,
+            <?php if(isset($_SESSION["userId"])){ echo $_SESSION["userId"];}else {echo 'none';}?>,
             <?= $memeTest2?>,
             document.getElementById("vote"),
             document.getElementById("vote-up"),
             this);});
-
+      }
 </script>
 <?php
 require_once "src/procedures/footer.php";

@@ -146,17 +146,46 @@ main .mem-list {
   justify-content: center;
   background-color: #F5F5F5;
 }
+main .mem-list .about {
+  font-weight: 100;
+  font-size: 1em;
+  padding: 0;
+  background-color: #FCFBF9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+main .mem-list .about h3 {
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+main .mem-list img {
+  width: 100%;
+}
 main .mem-list .votes {
   cursor: pointer;
 }
-main .mem-list .votes span {
-  padding: 1vh 0.5vw;
+main .mem-list .votes span:nth-child(2) {
+  min-width: 3vw;
+  display: inline-block;
+  cursor: default;
+  text-align: center;
 }
-main .mem-list .votes .voted-up {
+main .mem-list .votes span.up.voted-up {
   color: #468966;
 }
-main .mem-list .votes .voted-down {
+main .mem-list .votes span.down.voted-down {
   color: #B62C26;
+}
+main .mem-list .votes span.up:hover {
+  text-shadow: 0px -10px #595958;
+}
+main .mem-list .votes span.down:hover {
+  text-shadow: 0px 10px #595958;
+}
+main .mem-list .votes span {
+  padding: 1vh 0.5vw;
 }
 main .mem-list div {
   width: 100%;
@@ -170,7 +199,7 @@ main .mem-list div article {
 main .mem-list div article h3 {
   text-align: center;
   font-weight: 100;
-  font-size: 0.9em;
+  font-size: 1.2em;
 }
 main .mem-list div article h3 span {
   color: #717171;

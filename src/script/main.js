@@ -1,3 +1,35 @@
+class Post{
+    constructor(id, autor, image,activeUser){
+        this.id = id;
+        this.autor = autor;
+        this.image = image;
+        this.activeUser=activeUser;
+        this.voteUp = document.getElementById('vote-up-'+this.id);
+        this.voteDown = document.getElementById('vote-down-'+this.id);
+        this.vote = document.getElementById('vote-'+this.id); 
+        if(this.activeUser!=='none'){
+            this.voteUp.addEventListener('click',this.voteUpAction.bind(this));
+            this.voteDown.addEventListener('click',this.voteDownAction.bind(this));
+        } 
+    };
+    voteDownAction(){
+        vote('down', 
+            this.activeUser,
+            this.id,
+            this.vote,
+            this.voteUp,
+            this.voteDown);
+    }
+    voteUpAction(){
+        vote('up', 
+            this.activeUser,
+            this.id,
+            this.vote,
+            this.voteUp,
+            this.voteDown);
+    }
+}
+var postsLoaded = [];
 var infiniteLoading = (function() {
     "use strict";
 
@@ -47,27 +79,14 @@ var _readPosts = function(loadOnPageEnter) {
                                             postVote: mems.vote,
                                             userChoice: mems.userVote
                                     };
-
                                     var theCompiledHtml = theTemplate(context);
                                     var $element = $(theCompiledHtml);
-                                    $(".mem-list .mem").append($element);
-                                    // var voteUp=$("#vote-up-"+ mems.id);
-                                    // var voteDown = ("#vote-down-"+ mems.id);
-                                    // var voteNote = $("#vote-"+ mems.id);
-                                    var voteUp = document.getElementById('vote-up-'+mems.id)
-                                    var voteDown = document.getElementById('vote-down-'+mems.id)
-                                    var voteNote = document.getElementById('vote-'+mems.id)
-                                    var userId = mems.activeUser;
-                                    console.log(voteUp,voteDown)
-                                    $("#vote-up-"+ mems.id).click(function(){
-                                        vote('up',
-                                            userId,
-                                            mems.id,
-                                            voteNote,
-                                            voteUp,
-                                            voteDown
-                                    )
-                                    });
+                                    $(".mem-list .mem").append($element);                                    
+                                    postsLoaded[postsLoaded.length] = new Post(
+                                        mems.id,
+                                        mems.autor,
+                                        mems.image,
+                                        mems.activeUser);
                                 };
                             isPreviousEventComplete = true;  
 

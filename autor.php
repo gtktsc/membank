@@ -29,7 +29,7 @@ renderHeader();
                                                       'autor'         => $obj->autor,
                                                       'image'         => base64_encode( $obj->image )
                                                 );
-                                                      echo "<a href='post.php?mem=".$element['id']."'><img src='data:image/jpeg;base64,".$element['image']."'/></a><br>";
+                                                      echo "<div class ='mem'><a href='post.php?mem=".$element['id']."'><img src='data:image/jpeg;base64,".$element['image']."'/></a><br></div>";
                                           }
                                     }else{
                                           header("Location:index.php");       

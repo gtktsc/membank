@@ -80,8 +80,13 @@ if ($result = $conn->query($sql)) {
             };
         }
         $element['vote']=$ocena;
-        $element['userVote']=$yourVote;
-        $element['activeUser']=$_SESSION['userId'];
+        if(isset($_SESSION['userId'])){
+            $element['userVote']=$yourVote;
+            $element['activeUser']=$_SESSION['userId'];
+        }else{
+            $element['activeUser']='none';
+            
+        }
         array_push($resultArray['elements'], $element);        
     }
     echo json_encode($resultArray);
